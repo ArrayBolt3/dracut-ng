@@ -10,5 +10,6 @@ install() {
     inst_multiple -o cryptsetup btrfs
     inst_hook emergency 99 "$moddir/inform-automount.sh"
     inst_simple "$moddir/automount.sh" /bin/automount.sh
-    inst_simple /etc/os-release /host-os-release
+    cp /etc/os-release /tmp/99emerg-automount-host-os-release
+    inst /tmp/99emerg-automount-host-os-release /host-os-release
 }
